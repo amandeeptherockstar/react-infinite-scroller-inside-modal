@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Button } from "antd";
+import Modal from "./Modal";
+import "./App.css";
 
 function App() {
+  const [visible, setVisible] = useState(false);
+  const handleCancel = () => setVisible(false);
+  const handleOk = () => setVisible(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Button type="primary" onClick={() => setVisible(true)}>
+        Open Modal
+      </Button>
+      <Modal
+        destroyOnClose
+        visible={visible}
+        handleCancel={handleCancel}
+        handleOk={handleOk}
+      />
     </div>
   );
 }
